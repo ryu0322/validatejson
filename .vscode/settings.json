@@ -1,0 +1,10 @@
+{
+      // Specify GOPATH here to override the one that is set as environment variable. The inferred GOPATH from workspace root overrides this, if go.inferGopath is set to true.
+  "go.gopath": "C:/work/validatejson3/validatejson",
+  
+    // Location to install the Go tools that the extension depends on if you don't want them in your GOPATH.
+    "go.toolsGopath": "",
+  
+    // Specifies the GOROOT to use when no environment variable is set.
+    "go.goroot": "C:/go",
+}
