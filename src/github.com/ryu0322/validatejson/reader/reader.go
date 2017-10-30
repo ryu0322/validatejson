@@ -4,13 +4,14 @@ import (
 	"github.com/tealeg/xlsx"
 )
 
-func Reader(inPath string) Row[]{
-	xlFile, err := xlsx.OpenFile(readPath)
+func Reader(inPath string) []Row {
+	xlFile, err := xlsx.OpenFile(inPath)
+	//_, err := xlsx.OpenFile(inPath)
 	if err != nil {
 		panic(err)
 	}
 
-	var allRow = xlFile.Sheets[0].Rows
+	allRow := xlFile.Sheets[0].Rows
 
 	return allRow
 }
