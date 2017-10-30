@@ -92,7 +92,7 @@ func NewJson(actList map[string][]*xlsx.Row) {
 
 	// ファイル出力
 	byteJsonBody := []byte(strJsonBody)
-	ioutil.WriteFile("C:/Myfolder/validatepattern.json", byteJsonBody, os.ModePerm)
+	ioutil.WriteFile("C:/work/validatepattern.json", byteJsonBody, os.ModePerm)
 }
 
 // createValidateString アイテム名を生成します
