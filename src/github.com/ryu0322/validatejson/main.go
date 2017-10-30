@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/ryu0322/validatejson/jsons"
+
 	"github.com/ryu0322/validatejson/reader"
 )
 
@@ -15,5 +17,7 @@ func main() {
 
 	rows := reader.Reader(os.Args[1])
 
-	maps := jsons.CreateActionGroup(*rows)
+	maps := jsons.CreateActionGroup(rows)
+
+	jsons.NewJson(maps)
 }

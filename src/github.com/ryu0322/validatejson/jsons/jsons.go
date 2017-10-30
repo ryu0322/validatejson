@@ -29,7 +29,7 @@ type validateIndex struct {
 }
 
 // CreateActionGroup アクション単位でグルーピングする
-func CreateActionGroup(rows []xlsx.Row) map[string][]*xlsx.Row {
+func CreateActionGroup(rows []*xlsx.Row) map[string][]*xlsx.Row {
 	var actMap = make(map[string][]*xlsx.Row)
 	actRow := []*xlsx.Row{}
 
@@ -44,7 +44,7 @@ func CreateActionGroup(rows []xlsx.Row) map[string][]*xlsx.Row {
 						if keyFlg {
 							actRow = actRowWk
 						}*/
-			actRow = append(actRow, &rowData)
+			actRow = append(actRow, rowData)
 			actMap[rowData.Cells[10].Value] = actRow
 		}
 	}
