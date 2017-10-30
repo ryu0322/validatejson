@@ -38,7 +38,7 @@ func CreateActionGroup(rows []xlsx.Row) map[string][]*xlsx.Row {
 
 		// アクション指定がある場合
 		if rowData.Cells[10].Value != "" {
-			actRowWk, keyFlg := actMap[rowData.Cells[10].Value]
+			//			actRowWk, keyFlg := actMap[rowData.Cells[10].Value]
 
 			/*			// 既にデータがある場合は追加
 						if keyFlg {
@@ -52,10 +52,8 @@ func CreateActionGroup(rows []xlsx.Row) map[string][]*xlsx.Row {
 }
 
 // NewJson Jsonファイルを出力します
-func NewJson(actList map[string][]Row) {
+func NewJson(actList map[string][]*xlsx.Row) {
 
-	strJsonStart := "{"
-	strJsonEnd := "}"
 	strJsonBody := ""
 
 	icnt := 0
@@ -74,14 +72,14 @@ func NewJson(actList map[string][]Row) {
 				strItemBody += ","
 			}
 			// 先にチェック内容から詰めていく
-			strValBody += createValidateString(value[icnt2])
+			strValBody += createValidateString(*value[icnt2])
 
 			// Item内容を詰めて
 			if !boolComma {
-				strItemBody += createItemSting(key, value[icnt2], strValBody)
+				strItemBody += createItemSting(key, *value[icnt2], strValBody)
 
 			} else {
-				strItemBody = strItemBody + ",\n" + createItemSting(key, value[icnt2], strValBody)
+				strItemBody = strItemBody + ",\n" + createItemSting(key, *value[icnt2], strValBody)
 			}
 		}
 
