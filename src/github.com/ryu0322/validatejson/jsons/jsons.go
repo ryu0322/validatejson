@@ -17,6 +17,7 @@ type itemIndex struct {
 	valIndex []*validateIndex `json`
 }
 
+// validateIndexチェック内容を格納した項目です
 type validateIndex struct {
 	attribute        string `json: "attribute"`
 	attributePattern string `json: "attribute"`
@@ -28,25 +29,25 @@ type validateIndex struct {
 }
 
 // CreateActionGroup アクション単位でグルーピングする
-func CreateActionGroup(rows []xlsx.Row) map[string][]xlsx.Row {
-	var actMap = make(map[string][]xlsx.Row)
-	/*	actRow := []*xlsx.Row{}
+func CreateActionGroup(rows []xlsx.Row) map[string][]*xlsx.Row {
+	var actMap = make(map[string][]*xlsx.Row)
+	actRow := []*xlsx.Row{}
 
-		// 全行ループ
-		for _, rowData := range rows {
+	// 全行ループ
+	for _, rowData := range rows {
 
-			// アクション指定がある場合
-			if rowData.Cells[10].Value != "" {
-				actRowWk, keyFlg := actMap[rowData.Cells[10].Value]
+		// アクション指定がある場合
+		if rowData.Cells[10].Value != "" {
+			actRowWk, keyFlg := actMap[rowData.Cells[10].Value]
 
-				// 既にデータがある場合は追加
-				if keyFlg {
-					actRow[rowData.Cells[10].Value] = actRowWk
-				}
-				actRow = append(actRow, rowData)
-				actMap[rowData.Cells[10].Value] = actRow
-			}
-		}*/
+			/*			// 既にデータがある場合は追加
+						if keyFlg {
+							actRow = actRowWk
+						}*/
+			actRow = append(actRow, &rowData)
+			actMap[rowData.Cells[10].Value] = actRow
+		}
+	}
 	return actMap
 }
 
