@@ -4,7 +4,7 @@ import (
 	"github.com/tealeg/xlsx"
 )
 
-func Reader(inPath string) []Row {
+func Reader(inPath string) []*xlsx.Row {
 	xlFile, err := xlsx.OpenFile(inPath)
 	//_, err := xlsx.OpenFile(inPath)
 	if err != nil {
