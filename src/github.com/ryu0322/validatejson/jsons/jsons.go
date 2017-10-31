@@ -34,8 +34,12 @@ func CreateActionGroup(rows []*xlsx.Row) map[string][]*xlsx.Row {
 	actRow := []*xlsx.Row{}
 
 	// 全行ループ
-	for _, rowData := range rows {
+	for idx, rowData := range rows {
 
+		// 先頭行は無視（ヘッダレコードのため）
+		if idx == 0 || idx == 1 {
+			continue
+		}
 		// アクション指定がある場合
 		if rowData.Cells[10].Value != "" {
 			//			actRowWk, keyFlg := actMap[rowData.Cells[10].Value]
