@@ -17,7 +17,9 @@ func main() {
 
 	rows := reader.Reader(os.Args[1])
 
-	maps := jsons.CreateActionGroup(rows)
+	jsons.CreateJsonFile(rows)
 
-	jsons.NewJson(maps)
+/*	maps := jsons.CreateActionGroup(rows)*/
+
+/*	jsons.NewJson(maps)*/
 }
